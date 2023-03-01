@@ -23,3 +23,12 @@
 // anagrams('po', 'popp'); // -> false
 // test_10:
 // anagrams('pp', 'oo') // -> false
+
+let isAnagram = function(str1, str2) {
+    let sorted1 = str1.split('').sort().join('').toLowerCase();
+    let sorted2 = str2.split('').sort().join('').toLowerCase();
+    return (sorted1 === sorted2);
+}
+
+console.log(isAnagram('result', 'fluster'));
+console.log(isAnagram('cats', 'tocs'));
