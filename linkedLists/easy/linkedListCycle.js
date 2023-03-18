@@ -19,20 +19,18 @@
 // Input: head = [1,2], pos = 0
 // Output: true
 // Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
-// Example 3:
 
+// Example 3:
 
 // Input: head = [1], pos = -1
 // Output: false
 // Explanation: There is no cycle in the linked list.
- 
 
 // Constraints:
 
 // The number of the nodes in the list is in the range [0, 104].
 // -105 <= Node.val <= 105
 // pos is -1 or a valid index in the linked-list.
- 
 
 // Follow up: Can you solve it using O(1) (i.e. constant) memory?
 
@@ -43,8 +41,8 @@ var hasCycle = function(head) {
     while (fast && fast.next) {
         fast = fast.next.next;
         slow = slow.next;
-
         if(fast === slow) return true;
     }
+
     return false
 }
