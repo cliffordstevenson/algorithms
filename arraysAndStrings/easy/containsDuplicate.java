@@ -1,5 +1,13 @@
-class Solution {
-    public boolean containsDuplicate(int[] nums) {
+import java.util.HashSet;
+
+class containsDuplicate {
+    public static void main(String[] args) {
+        int[] nums = {1,2,3,4};
+        System.out.println(containsDuplicate(nums));
+    }
+
+
+    public static boolean containsDuplicate(int[] nums) {
         HashSet<Integer> set = new HashSet<Integer>();
         for(int i: nums) {
             if(set.contains(i)) {
@@ -12,8 +20,3 @@ class Solution {
     }
 }
 
-class printFunction { 
-    public static void main(String[] args) { 
-        System.out.println(containsDuplicate([1,2,3,4])); 
-    }
-}

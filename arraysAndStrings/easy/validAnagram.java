@@ -1,6 +1,8 @@
 public class validAnagram {
     public static void main(String[] args) {
-        System.out.println(isAnagram("anagram", "nagaram"));
+        String s = "cheese";
+        String t = "seesec";
+        System.out.println(isAnagram(s, t));
     }
 
     public static boolean isAnagram(String s, String t) {
