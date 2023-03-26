@@ -49,6 +49,7 @@ class Solution {
             // we don't care if it's upper or lowercase, but it needs to be one or the other
             fixed_string = fixed_string.toLowerCase();
 
+            // 2 Pointers
             int a_pointer = 0;
             int b_pointer = fixed_string.length()-1;
 
