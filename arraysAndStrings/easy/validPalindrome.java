@@ -36,32 +36,21 @@
 
 class Solution {
     public boolean isPalindrome(String s) {
-        // we remove punctuation
-        // initialize
-        String fixed_string = "";
+        int i = o;
+        int j = s.length() - 1;
 
-        // Java Builtin Methods
-        for(char c : s.toCharArray()) {
-            if (Character.isDigit(c) || Character.isLetter(c)) {
-                fixed_string += c;
+        while(i < j) {
+            while(i < j && !Character.isLetterorDigit(s.charAt(i))){
+                i++;
+            } 
+            while(i < j && !Character.isLetterorDigit(s.charAt(j))){
+                j--;
             }
 
-            // we don't care if it's upper or lowercase, but it needs to be one or the other
-            fixed_string = fixed_string.toLowerCase();
-
-            // 2 Pointers
-            int a_pointer = 0;
-            int b_pointer = fixed_string.length()-1;
-
-            while (a_pointer <= b_pointer) {
-                if (fixed_string.charAt(a_pointer) != fixed_string.charAt(b_pointer)) {
-                    return false;
-                }
-
-                a_pointer += 1;
-                b_pointer -= 1;
+            if(i < j && Character.toLowerCase(s.charAt(i++)) != Character.toLowerCase(s.charAt(j--))) {
+                return false;
             }
-            return true;
         }
+        return true;
     }
 }

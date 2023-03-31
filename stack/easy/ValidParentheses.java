@@ -36,7 +36,7 @@ class Solution {
     public boolean isValid(String s) {
         if (s.length() % 2 != 0) return false;
 
-        Stack<Character> stack = new Stack();
+        Stack<Character> stack = new Stack<Character>();
         for (char c : s.toCharArray()) {
 
             if ( c == '(' || c == '{' || c == '[') {
@@ -58,7 +58,7 @@ class Solution {
 // Kevin Naughton Jr.
 class Solution {
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<Character();
+        Stack<Character> stack = new Stack<Character>();
         for(char c : s.toCharArray()) {
 
         }
