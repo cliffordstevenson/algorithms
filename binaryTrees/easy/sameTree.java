@@ -31,6 +31,8 @@
 // The number of nodes in both trees is in the range [0, 100].
 // -104 <= Node.val <= 104
 
+// time complexity: O(n); n is the number of nodes in the tree
+
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         // base case
