@@ -32,11 +32,14 @@
 // 1 <= s.length <= 2 * 105
 // s consists only of printable ASCII characters.
 
-
+class dummy {
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("racecar"));
+    }
 
 class Solution {
     public boolean isPalindrome(String s) {
-        int i = o;
+        int i = 0;
         int j = s.length() - 1;
 
         while(i < j) {
@@ -46,11 +49,12 @@ class Solution {
             while(i < j && !Character.isLetterorDigit(s.charAt(j))){
                 j--;
             }
-
+            // this is just like a for loop, it increments after checking the values;
             if(i < j && Character.toLowerCase(s.charAt(i++)) != Character.toLowerCase(s.charAt(j--))) {
                 return false;
             }
         }
         return true;
     }
+}
 }
