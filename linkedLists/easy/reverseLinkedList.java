@@ -30,18 +30,18 @@
 
 class Solution {
     public ListNode reverseList(ListNode head) {
-        // base case
         if(head == null) return null;
-        // define cur and pre
+        // putting pre = null here makes it a ListNode object. 
         ListNode cur = head, pre = null;
-        // while cur is not null we continue to traverse the list
-        while (cur != null){
+
+        while(cur != null) {
             ListNode temp = cur.next;
+            // cur.next is a ListNode object, it does not represent a value or a node. It refers to pointing at the next node of cur
             cur.next = pre;
             pre = cur;
             cur = temp;
         }
-        // return previous
+        // we return pre because it points to the head of the new reversed linked list
         return pre;
     }
 }
