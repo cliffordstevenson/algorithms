@@ -83,6 +83,8 @@ class Solution {
         // we would have to write our own function to do this, so abs
         // is best practice without exception
         if(Math.abs(rightH - leftH) <= 1) return Math.max(rightH, leftH) + 1;
+        // finally, this unbalanced calls isBalanced, which is the
+        // public function, and returns false or true
         return UNBALANCED;
     }
 }
