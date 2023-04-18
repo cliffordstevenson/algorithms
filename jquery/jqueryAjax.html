@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <pre class="vanilla">This will be replaced by vanilla JavaScript AJAX Call</pre>
+        <pre class="jquery">This will be replaced by a jquery AJAX Call</pre>
+    </main>
+    <script>
+        const URL = 'http://jsonplaceholder.typicode.com/albums';
+        // JQuery
+        $(document).ready(function () {
+            $.ajax({
+                url: URL,
+                method: 'GET',
+                dataType: 'json',
+            })
+                .done(function (data) {
+                    // ajax call worked
+                    console.log('JQuery', data);
+                    $('.jquery').text(JSON.stringify(data, null, 2));
+                    // JSON.stringify is NOT a jquery thing
+                })
+                .fail(function (err) {
+                    // ajax call failed
+                })
+        });
+
+
+        // JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            let req = new Request(URL, {
+                method: 'GET'
+            })
+
+            fetch(req)
+                // go to the response object and give me the data thats inside of you
+                .then(response => response.json())
+                .then(data => {
+                    console.log('FETCH', data);
+                    // $('.jquery').text(JSON.stringify(data, null, 2));
+                    document.querySelector('.vanilla').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(err => {
+                    // report the error to the client
+                })
+        });
+
+
+    </script>
+</body>
+
+</html>
