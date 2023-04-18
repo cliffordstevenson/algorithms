@@ -48,3 +48,17 @@ class Solution {
         return Math.max(left, right) + 1;
     }
 }
+
+// The maxDepth method is recursively called on the left and right 
+// subtrees of the current node separately, so it essentially traverses 
+// the entire tree from the root to the leaf nodes in a depth-first 
+// manner.
+
+// The recursion goes all the way to the bottom of the left subtree 
+// before the right subtree is processed. When the recursion reaches 
+// a null node (i.e., a leaf node), it stops and returns a depth of 0 
+// for that subtree. Then, the recursion unwinds, and the maximum depth 
+// of the left and right subtrees is computed using the Math.max(left, 
+// right) + 1 expression, as mentioned earlier. The + 1 part of the 
+// expression accounts for the current node, which is at a depth of 1 
+// relative to the depth of its children.

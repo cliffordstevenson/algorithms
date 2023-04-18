@@ -36,6 +36,11 @@
 // This is a recursive solution, often Binary Tree problems
 // can be solved recursively
 
+// recursive function to not happen top to bottom like a loop
+// they happen bottom to top, so they are called many times
+// but they are called in a stack, so they are called in a
+// LIFO order (last in first out)
+
 class Solution {
     public TreeNode invertTree(TreeNode root) {
         // return the null root because it's already inverted.
