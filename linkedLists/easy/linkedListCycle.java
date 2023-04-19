@@ -39,17 +39,20 @@
 
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        // base case
-        if(head == null || head.next == null) return false;
-        // define slow and fast
-        ListNode slow = head, fast = head;
-        // traverse the list to find cycle
-        while(fast != null && fast.next != null) {
-            fast = fast.next.next;
+        if ( head == null ) return false;
+
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        while ( slow != fast ) {
+
+            if ( fast == null || fast.next == null) {
+                return false;
+            }
+
             slow = slow.next;
-            if(slow == fast) return true;
+            fast = fast.next.next;
         }
-        // return false if no cycle
-        return false;
+        return true;
     }
 }
