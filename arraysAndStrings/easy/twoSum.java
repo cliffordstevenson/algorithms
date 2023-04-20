@@ -37,7 +37,7 @@ class TwoSum {
 // Hash Map Ti= O(n), Sp= O(n)
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> num_map = new HashMap<>();
+        Map<Integer, Integer> num_map = new HashMap();
 
         for(int i = 0; i<nums.length; i++) {
             int complement = target - nums[i];
