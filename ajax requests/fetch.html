@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <script>
+        function loadData() {
+            fetch('example.php?id=123')
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(function (data) {
+                    var html = '<table><thead><tr><th>Name</th><th>Age</th></tr></thead><tbody>';
+                    data.forEach(function (item) {
+                        html += '<tr><td>' + item.name + '</td><td>' + item.age + '</td></tr>';
+                    });
+                    html += '</tbody></table>';
+                    document.getElementById('output').innerHTML = html;
+                })
+                .catch(function (error) {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+    </script>
+</head>
+
+<body onload="loadData()">
+    <div id="output">
+        <p>Loading data...</p>
+    </div>
+</body>
+
+</html>

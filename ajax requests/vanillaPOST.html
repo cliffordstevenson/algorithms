@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX Example</title>
+    <script>
+        function makeAjaxCall() {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        const data = JSON.parse(xhr.responseText);
+                        let html = '<ul>';
+                        data.forEach(function (item) {
+                            html += '<li>' + item.name + ' - ' + item.age + '</li>';
+                        });
+                        html += '</ul>';
+                        document.getElementById('output').innerHTML = html;
+                    } else {
+                        console.log('Error: ' + xhr.status);
+                    }
+                }
+            };
+            xhr.open('POST', 'example.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.send('id=123');
+        }
+    </script>
+</head>
+
+<body onload="makeAjaxCall()">
+    <div id="output">
+        <p>Loading data...</p>
+    </div>
+</body>
+
+</html>
