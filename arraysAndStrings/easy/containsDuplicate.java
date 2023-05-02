@@ -8,25 +8,41 @@ class containsDuplicate {
 
     // Time= O(n), Space = O(n)
     public static boolean containsDuplicate(int[] nums) {
-        HashSet<Integer> set = new HashSet<Integer>();
-        for(int i: nums) {
-            if(set.contains(i)) {
-                return true;
-            } else {
-                set.add(i);
-            }
+        Set<Integer> set = new HashSet();
+
+        for ( int i = 0; i < nums.length; i++) {
+            if (set.contains(nums[i])) return true;
+            set.add(nums[i]);
         }
         return false;
     }
+}
 
-    // Time= (n log n) quasilinear time complexity, Space= 0(1);
-    public static boolean containsDuplicate(int[] nums) {
-        Arrays.sort(nums);
 
-        for (int i = 0; i < nums.length; i++ ){
-            if (nums[i] == nums[i+1]) return true;
+// Sort 0(n log n), 0(1);
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Arrays.sort(nums); // sort the array in ascending order
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                return true; // if adjacent elements are equal, there is a duplicate
+            }
         }
-        return false;
+        return false; // no duplicates found
+    }
+}
+
+// Brute Force - O(n^2) worst case, 0(1);
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    return true; // if two elements are equal, there is a duplicate
+                }
+            }
+        }
+        return false; // no duplicates found
     }
 }
 
