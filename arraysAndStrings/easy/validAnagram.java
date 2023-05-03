@@ -62,6 +62,7 @@ class Solution {
 }
 
 // Brute Force 0(n), 0(n), not as efficient as hash table- two hashmaps
+
 class Solution {
     public boolean isAnagram(String s, String t) {
         if(s.length() != t.length()) return false;

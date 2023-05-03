@@ -37,33 +37,65 @@ class TwoSum {
 // Hash Map Ti= O(n), Sp= O(n)
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> num_map = new HashMap();
+        Map<Integer, Integer> map = new HashMap();
 
         for(int i = 0; i<nums.length; i++) {
             int complement = target - nums[i];
 
-            if (num_map.containsKey(complement)) {
-                return new int[] {num_map.get(complement), i};
-            } else {
-                num_map.put(nums[i], i);
-            }
+            if (map.containsKey(complement)) {
+                return new int[] {map.get(complement), i};
+            } 
+            map.put(nums[i], i);
         }
+        return null;
     }
 }
 
-
-//iterative double for loop Ti: O(n^2) polynomial, Space: O (1) constant;
-class TwoSum {
-    public static int[] twoSum(int[] nums, int target) {
-        for(int i = 0; i < nums.length; i++) {
+// Brute force 0(n^2), 0(1)
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
-                int difference = target - nums[i];
-                if (nums[j] == difference) {
-                    return new int[] {i, j};
+                if (nums[i] + nums[j] == target) {
+                    return new int[] { i, j };
                 }
             }
         }
+        return null;
     }
 }
+
+// Sorting Solution 0(n log n), 0(n)
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] sortedNums = Arrays.copyOf(nums, nums.length);
+        Arrays.sort(sortedNums);
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int sum = sortedNums[left] + sortedNums[right];
+            if (sum < target) {
+                left++;
+            } else if (sum > target) {
+                right--;
+            } else {
+                int i = findIndex(nums, sortedNums[left]);
+                int j = findIndex(nums, sortedNums[right]);
+                return new int[] { i, j };
+            }
+        }
+        return null;
+    }
+    
+    private int findIndex(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
+
+}
+
 
